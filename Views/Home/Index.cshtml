@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Hoş Geldiniz";
+}
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(to bottom, #fdfbfb, #ebedee); font-family: Arial, sans-serif;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">SudokuApp'e Hoş Geldiniz!</h1>
+
+    <form method="get" action="/Game/Index" style="text-align: center;">
+        <label for="difficulty" style="font-size: 1.2rem;">Zorluk Seviyesi:</label>
+        <select id="difficulty" name="difficulty" style="padding: 10px; font-size: 1rem; margin: 10px;">
+            <option value="easy">Kolay</option>
+            <option value="medium">Orta</option>
+            <option value="hard">Zor</option>
+        </select>
+        <br />
+        <button type="submit" style="padding: 10px 20px; font-size: 1.2rem; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Yeni Oyuna Başla
+        </button>
+    </form>
+</div>
