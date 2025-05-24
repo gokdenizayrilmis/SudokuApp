@@ -13,11 +13,30 @@ public class BoardGenerator
         _rand = new Random();
     }
 
-    public SudokuBoard Generate()
+    public SudokuBoard Generate(int emptyCells = 40)
     {
         FillBoard(0, 0);
+        RemoveCells(emptyCells);
         return _board;
     }
+
+
+    public void RemoveCells(int count)
+    {
+        int removed = 0;
+        while (removed < count)
+        {
+            int row = _rand.Next(0, 9);
+            int col = _rand.Next(0, 9);
+
+            if (_board.Grid[row, col] != 0)
+            {
+                _board.Grid[row, col] = 0;
+                removed++;
+            }
+        }
+    }
+
 
     private bool FillBoard(int row, int col)
     {

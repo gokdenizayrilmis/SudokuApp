@@ -9,7 +9,7 @@ public class GameController : Controller
     public IActionResult Index()
     {
         var generator = new BoardGenerator();
-        SudokuBoard board = generator.Generate();
+        SudokuBoard board = generator.Generate(40);
         return View(board);
     }
 }
