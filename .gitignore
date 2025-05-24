@@ -1,0 +1,35 @@
+## Build ve Visual Studio dosyalarý
+bin/
+obj/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Rider
+.idea/
+
+## Paket klasörleri
+node_modules/
+packages/
+bower_components/
+
+## Publish klasörü
+publish/
+
+## SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+## Logs
+*.log
+
+## Docker
+.env
+docker-compose.override.yml
