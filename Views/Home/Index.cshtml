@@ -1,20 +1,55 @@
 ﻿@{
-    ViewData["Title"] = "Hoş Geldiniz";
+    ViewData["Title"] = "Sudoku - Giriş";
 }
 
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(to bottom, #fdfbfb, #ebedee); font-family: Arial, sans-serif;">
-    <h1 style="font-size: 3rem; margin-bottom: 1rem;">SudokuApp'e Hoş Geldiniz!</h1>
+<div class="welcome-wrapper">
+    <!-- Sol panel -->
+    <div class="info-card">
+        <h2>🧩 Oyun Hakkında</h2>
+        <p><strong>Sudoku</strong>, mantıksal bir sayı yerleştirme oyunudur.</p>
+        <p>9x9 karelik alanda öyle bir şekilde 1-9 sayıları yerleştirilir ki; her satır, sütun ve 3x3 blok içinde aynı sayı bir kez yer alır.</p>
+        <p>Kolaydan zora doğru çeşitli zorluk seviyeleriyle zekanı zorla!</p>
+    </div>
 
-    <form method="get" action="/Game/Index" style="text-align: center;">
-        <label for="difficulty" style="font-size: 1.2rem;">Zorluk Seviyesi:</label>
-        <select id="difficulty" name="difficulty" style="padding: 10px; font-size: 1rem; margin: 10px;">
-            <option value="easy">Kolay</option>
-            <option value="medium">Orta</option>
-            <option value="hard">Zor</option>
-        </select>
-        <br />
-        <button type="submit" style="padding: 10px 20px; font-size: 1.2rem; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
-            Yeni Oyuna Başla
-        </button>
-    </form>
+    <!-- Orta panel (mevcut giriş kartı) -->
+    <div class="welcome-card">
+        <h1>🎮 Sudoku'ya Hoş Geldiniz!</h1>
+        <p>Zorluk seviyenizi seçerek oyuna başlayabilirsiniz:</p>
+
+        <form asp-controller="Game" asp-action="Index" method="get" id="startForm" novalidate>
+            <select name="difficulty" id="difficultySelect" required>
+                <option value="" hidden selected disabled>Zorluk Seçin</option>
+                <option value="easy">Kolay</option>
+                <option value="medium">Orta</option>
+                <option value="hard">Zor</option>
+            </select>
+
+            <div id="difficultyInfo" class="info-text"></div>
+            <button type="submit" id="startBtn">Başla</button>
+            <div id="errorMsg" class="error-text"></div>
+        </form>
+    </div>
+
+    <!-- Sağ panel -->
+    <div class="info-card">
+        <h2>👨‍💻 Geliştirici</h2>
+        <p><strong>Gökdeniz Ayrılmış</strong></p>
+        <p>3. Sınıf Yönetim Bilişim Sistemleri öğrencisiyim.</p>
+        <p>C#, .NET Core, Web Geliştirme ile ilgileniyorum.</p>
+        <p>Bu Sudoku projesini hem teknik hem tasarımsal yeteneklerimi geliştirmek için yapıyorum.</p>
+    </div>
 </div>
+
+<div class="theme-toggle">
+    <label class="switch">
+        <input type="checkbox" id="themeSwitch">
+        <span class="slider round"></span>
+    </label>
+    <span id="themeLabel">☀️</span>
+</div>
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js" defer></script>
+    <script src="~/js/site.js"></script>
+}

@@ -1,22 +1,238 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.welcome-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    animation: fadeIn 1s ease;
+}
+
+    .welcome-card h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .welcome-card select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+    .welcome-card button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: #2563eb;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .welcome-card button:hover {
+            background-color: #1e40af;
+        }
+
+.info-text {
+    margin: 10px 0;
+    font-weight: 500;
+    color: #555;
+}
+
+.error-text {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Giriþ sayfasý için 3'lü kolon tasarýmý */
+.welcome-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.welcome-card,
+.info-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    min-width: 300px;
+    animation: fadeIn 0.8s ease;
+}
+
+    .info-card h2 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: #2563eb;
+    }
+
+    .info-card p {
+        font-size: 15px;
+        color: #444;
+        margin-bottom: 10px;
+    }
+
+
+/* Dark Mode stilleri */
+body.dark-mode {
+    background: linear-gradient(135deg, #1e1e1e, #121212) !important;
+    color: #e0e0e0 !important;
+}
+
+
+    body.dark-mode .welcome-card,
+    body.dark-mode .info-card {
+        background-color: #1f1f1f;
+        color: #f0f0f0;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+        border: 1px solid #2d2d2d;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02), 0 0 12px rgba(0, 0, 0, 0.6);
+    }
+
+
+    body.dark-mode select,
+    body.dark-mode button,
+    body.dark-mode input {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        border: 1px solid #555;
+    }
+
+        body.dark-mode select option {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+    body.dark-mode .info-text {
+        color: #c2c2c2;
+    }
+
+    body.dark-mode .error-text {
+        color: #ff6b6b;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode p,
+    body.dark-mode label {
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .welcome-card h1 {
+        color: #4f9cf7; /* Hoþ geldiniz baþlýðý - mavi ton */
+    }
+
+    body.dark-mode .info-card h2 {
+        color: #22d3ee; /* Geliþtirici - cyan */
+    }
+
+    body.dark-mode .info-card:first-of-type h2 {
+        color: #a78bfa; /* Oyun hakkýnda - mor/lila */
+    }
+
+
+
+/* Hover animasyonu */
+.welcome-card:hover,
+.info-card:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
+
+/* Toggle Switch tasarýmý */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+input:checked + .slider {
+    background-color: #4f46e5;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }

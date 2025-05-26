@@ -16,18 +16,19 @@ public class BoardGenerator
     public SudokuBoard Generate(int emptyCells = 40)
     {
         FillBoard(0, 0);
-        RemoveCells(emptyCells);
+        RemoveCells(emptyCells); // Doğru çağrı artık
         return _board;
     }
 
-
-    public void RemoveCells(int count)
+    public void RemoveCells(int cellsToRemove) // Sadece hücre sayısı alıyor
     {
+        Random rand = new Random();
         int removed = 0;
-        while (removed < count)
+
+        while (removed < cellsToRemove)
         {
-            int row = _rand.Next(0, 9);
-            int col = _rand.Next(0, 9);
+            int row = rand.Next(9);
+            int col = rand.Next(9);
 
             if (_board.Grid[row, col] != 0)
             {
@@ -36,7 +37,6 @@ public class BoardGenerator
             }
         }
     }
-
 
     private bool FillBoard(int row, int col)
     {
